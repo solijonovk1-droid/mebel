@@ -18,6 +18,11 @@ const BRANCHES = [
 function Profile() {
   const navigate = useNavigate();
   const [orders, setOrders] = useState<any[]>([]);
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [theme, setTheme] = useState(
+    document.documentElement.getAttribute('data-theme') || 'light'
+  );
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {

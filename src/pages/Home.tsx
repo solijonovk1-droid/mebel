@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import type { User } from '@supabase/supabase-js';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
-import { supabase, signIn, signUp, signOut } from '../lib/supabase';
-import type { Product, Order, OrderItem } from '../lib/supabase';
+import { supabase, signIn, signUp } from '../lib/supabase';
+import type { Product, OrderItem } from '../lib/supabase';
 
 const CATEGORIES = ['Barchasi', 'TV', 'Sovutgich', 'Kir yuvish', 'Smartfon', 'Boshqa'];
 
@@ -156,11 +156,6 @@ function Home() {
     } else {
       setRegSuccess(true);
     }
-  };
-
-  const handleLogout = async () => {
-    await signOut();
-    showToast("Tizimdan chiqdingiz", 'info');
   };
 
   // ── Scroll + Menu ────────────────────────────────────────────────────────
